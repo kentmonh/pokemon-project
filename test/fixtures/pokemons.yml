@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  total_point: 1
+  height: 9.99
+  weight: 9.99
+  generation: one
+
+two:
+  name: MyString
+  total_point: 1
+  height: 9.99
+  weight: 9.99
+  generation: two
