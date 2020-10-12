@@ -1,1 +1,11 @@
-<h1> <%= @generation.number %> </h1>
+<h1> Generation <%= @generation.number %> </h1>
+
+<p>
+  There are <%= @generation.pokemons.count %> pokemons in this generation.
+</p>
+
+<ul>
+  <% @generation.pokemons.each do |pokemon| %>
+    <li> <%= link_to pokemon.name, pokemon %> </li>
+  <% end %>
+</ul>
