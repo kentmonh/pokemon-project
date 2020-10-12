@@ -1,2 +1,7 @@
-<h1>Generations#index</h1>
-<p>Find me in app/views/generations/index.html.erb</p>
+<h1>Generations</h1>
+
+<ul>
+  <% @generations.each do |generation| %>
+    <li> <%= link_to "Generation #{generation.number}", generation %> pokemons </li>
+  <% end %>
+</ul>
