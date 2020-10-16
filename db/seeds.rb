@@ -1,8 +1,10 @@
 require "csv"
 
 # Clearing our data
-Pokemon.destroy_all
-Generation.destroy_all
+PokemonType.delete_all
+Type.delete_all
+Pokemon.delete_all
+Generation.delete_all
 
 # Loop through the rows of a CSV file
 csv_file = Rails.root.join("db/pokemon.csv")
@@ -22,7 +24,16 @@ pokemons.each do |pokemon|
     height:      pokemon["height_m"],
     weight:      pokemon["weight_kg"]
   )
+
+  types = pokemon["types"].split(",").map(&:strip)
+  puts types
+  types.each do |type_name|
+    type = Type.find_or_create_by(name: type_name)
+    PokemonType.create(pokemon: p, type: type)
+  end
 end
 
 puts "Created #{Generation.count} generations"
 puts "Created #{Pokemon.count} pokemons"
+puts "Created #{Type.count} types"
+puts "Created #{PokemonType.count} pokemon types"
