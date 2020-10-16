@@ -2,7 +2,9 @@ require "csv"
 
 # Clearing our data
 PokemonType.delete_all
+PokemonAbility.delete_all
 Type.delete_all
+Ability.delete_all
 Pokemon.delete_all
 Generation.delete_all
 
@@ -26,10 +28,15 @@ pokemons.each do |pokemon|
   )
 
   types = pokemon["types"].split(",").map(&:strip)
-  puts types
   types.each do |type_name|
     type = Type.find_or_create_by(name: type_name)
     PokemonType.create(pokemon: p, type: type)
+  end
+
+  abilities = pokemon["abilities"].split(",").map(&:strip)
+  abilities.each do |ability_name|
+    ability = Ability.find_or_create_by(name: ability_name)
+    PokemonAbility.create(pokemon: p, ability: ability)
   end
 end
 
@@ -37,3 +44,5 @@ puts "Created #{Generation.count} generations"
 puts "Created #{Pokemon.count} pokemons"
 puts "Created #{Type.count} types"
 puts "Created #{PokemonType.count} pokemon types"
+puts "Created #{Ability.count} abilities"
+puts "Created #{PokemonAbility.count} pokemon abilities"
