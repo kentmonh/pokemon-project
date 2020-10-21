@@ -4,7 +4,7 @@
     <!-- Required meta tags for Bootstrap -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Minh's Pokemon Project</title>
+    <title><%= yield(:html_title) + " - " if content_for?(:html_title) %>Minh's Pokemon Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
