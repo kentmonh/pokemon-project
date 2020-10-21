@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Pokemon</h2>
+      <ol>
+        <% @pokemons.each do |pokemon| %>
+          <li>
+            <%= link_to pokemon.name, pokemon %>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="col">
+      <h2>Generation</h2>
+      <ol>
+        <% @generations.each do |generation| %>
+          <li>
+            <%= link_to "Generation #{generation.number}", generation %>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
