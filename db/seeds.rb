@@ -7,6 +7,19 @@ Type.delete_all
 Ability.delete_all
 Pokemon.delete_all
 Generation.delete_all
+Page.delete_all
+
+Page.create(
+  title:     "About Page",
+  content:   "I am having a plan to build a site contain data of all pokemons.
+   I am using 2 data sources, both of them are from Kaggle.
+   The first data is an excel file contain information of all pokemons,
+   and the second data is collection of photos of these pokemons.
+   I will try to appear the photo in each pokemon.
+   The data have 4 tables, there are 1 one-to-many relationship is pokemons-generations
+   and 2 many-to-many relationships are pokemons-types and pokemons-abilities.",
+  permalink: "about_us"
+)
 
 # Loop through the rows of a CSV file
 csv_file = Rails.root.join("db/pokemon.csv")
