@@ -17,6 +17,14 @@
 
   <body>
 
+    <h1>Your Pokemon List</h1>
+
+    <%= form_with(url: search_pokemons_path, method: :get, local: true) do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:keywords, nil) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
     <div class="container p-4 m-4">
       <%= yield %>
     </div>

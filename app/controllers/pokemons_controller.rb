@@ -8,4 +8,10 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
   end
   # @pokemon shared with app/views/pokemons/show
+
+  def search
+    keyword_search = "%#{params[:keywords]}%"
+    @result_pokemons = Pokemon.where("name LIKE ?", keyword_search)
+  end
+  # @result_pokemons shared with app/views/pokemons/search
 end
