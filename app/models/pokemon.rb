@@ -12,7 +12,7 @@ class Pokemon < ApplicationRecord
   validates :total_point, numericality: { only_integer: true }
   validates :height, :weight, numericality: true
 
-  def types_list
-    types.map(&:name).join(", ")
-  end
+  # def types_list
+  #   types.map(&:name).join(", ")
+  # end
 end

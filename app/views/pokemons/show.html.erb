@@ -11,6 +11,10 @@
 </p>
 
 <p>
+  Abilities: <%= @pokemon.abilities.map(&:name).join(", ") %>
+</p>
+
+<p>
   Total Point: <%= @pokemon.total_point %>
 </p>
 
