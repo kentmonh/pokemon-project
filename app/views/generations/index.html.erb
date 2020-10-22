@@ -4,7 +4,7 @@
   <% @generations.each do |generation| %>
     <li class="list-group-item">
       <%= link_to "Generation #{generation.number}", generation %>
-      <em>(<%= pluralize generation.pokemon_count, "Pokemons" %>)</em>
+      <em>(<%= pluralize generation.pokemons.count, "Pokemons" %>)</em>
     </li>
   <% end %>
 </ul>

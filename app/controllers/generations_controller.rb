@@ -1,6 +1,6 @@
 class GenerationsController < ApplicationController
   def index
-    @generations = Generation.pokemon_count
+    @generations = Generation.all
   end
 
   def show
