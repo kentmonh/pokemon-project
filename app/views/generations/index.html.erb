@@ -1,7 +1,10 @@
 <h1>Generations</h1>
 
-<ul>
+<ul class="list-group list-group-flush">
   <% @generations.each do |generation| %>
-    <li> <%= link_to "Generation #{generation.number}", generation %> pokemons </li>
+    <li class="list-group-item">
+      <%= link_to "Generation #{generation.number}", generation %>
+      <em>(<%= pluralize generation.pokemon_count, "Pokemons" %>)</em>
+    </li>
   <% end %>
 </ul>
