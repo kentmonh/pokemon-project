@@ -2,6 +2,10 @@
 
 <h1> <%= @pokemon.name %> </h1>
 
+<% if Rails.application.assets.find_asset("#{@pokemon.name.downcase}.png") != nil %>
+  <%= image_tag("#{@pokemon.name.downcase}.png", :alt => @pokemon.name.downcase) %>
+<% end %>
+
 <p>
   <%= link_to "Generation #{@pokemon.generation.number}", @pokemon.generation %>
 </p>
