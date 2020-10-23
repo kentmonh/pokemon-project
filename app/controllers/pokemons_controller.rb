@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.includes(:generation)
+    @pokemons = Pokemon.includes(:generation).page(params[:page])
   end
   # @pokemons shared with app/views/pokemons/index
 
