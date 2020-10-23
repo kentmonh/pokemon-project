@@ -11,7 +11,12 @@ class PokemonsController < ApplicationController
 
   def search
     keyword_search = "%#{params[:keywords]}%"
-    @result_pokemons = Pokemon.where("name LIKE ?", keyword_search)
+    generation_search = params[:select_generation]
+    if generation_search == ""
+      @result_pokemons = Pokemon.where("name LIKE ?", keyword_search)
+    else
+      @result_pokemons = Pokemon.where("name LIKE ? AND generation_id = ?", keyword_search, generation_search)
+    end
   end
   # @result_pokemons shared with app/views/pokemons/search
 end

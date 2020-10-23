@@ -25,18 +25,35 @@
         <li class="nav-item">
           <p class="nav-link lead"><%= link_to "/about_us", permalink_path("about_us") %></p>
         </li>
+        <li class="nav-item">
+          <p class="nav-link lead"><%= link_to "/pokemons", pokemons_path %></p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link lead"><%= link_to "/types", types_path %></p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link lead"><%= link_to "/abilities", abilities_path %></p>
+        </li>
       </ul>
     </nav>
 
-    <p class="display-4">Your Pokemon List</p>
+    <p class="text-center display-4">Minh's Pokemons Project</p>
 
     <%= form_with(url: search_pokemons_path, method: :get, local: true) do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:keywords, nil) %>
-      <%= submit_tag("Search") %>
+      <div class="field is-grouped mb-5">
+        <div class="control is-expanded">
+          <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search Pokemons") %>
+        </div>
+        <div>
+          <%= select_tag 'select_generation', options_from_collection_for_select(Generation.all, :id, :number), prompt: "All Generation" %>
+        </div>
+        <div class="control ">
+          <%= submit_tag("Search", class: "button is-primary") %>
+        </div>
+      </div>
     <% end %>
 
-    <div class="container p-4 m-4">
+    <div>
       <%= yield %>
     </div>
 
