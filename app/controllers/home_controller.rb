@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @pokemons = Pokemon.includes(:generation).limit(10)
+    @pokemons = Pokemon.all.limit(10)
 
     @generations = Generation.all
+
+    @types = Type.all.limit(10)
+
+    @abilities = Ability.all.limit(10)
   end
 end

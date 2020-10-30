@@ -1,24 +1,62 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>Pokemon</h2>
-      <ol>
+      <h2>Some Pokemon</h2>
+      <ul>
         <% @pokemons.each do |pokemon| %>
           <li>
             <%= link_to pokemon.name, pokemon %>
           </li>
         <% end %>
-      </ol>
+      </ul>
+
+      <p class="mt-5">
+        <strong><%= link_to 'See all the Pokemons', pokemons_path %></strong>
+      </p>
     </div>
+
     <div class="col">
       <h2>Generation</h2>
-      <ol>
+      <ul>
         <% @generations.each do |generation| %>
           <li>
             <%= link_to "Generation #{generation.number}", generation %>
           </li>
         <% end %>
-      </ol>
+      </ul>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <h2>Types</h2>
+      <ul>
+        <% @types.each do |type| %>
+          <li>
+            <%= link_to type.name, type %>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class="mt-5">
+        <strong><%= link_to 'See all Types of Pokemons', types_path %></strong>
+      </p>
+    </div>
+
+    <div class="col">
+      <h2>Abilities</h2>
+      <ul>
+        <% @abilities.each do |abilitie| %>
+          <li>
+            <%= link_to abilitie.name, abilitie %>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class="mt-5">
+        <strong><%= link_to 'See all Abilities of Pokemons', abilities_path %></strong>
+      </p>
+    </div>
+  </div>
+
 </div>

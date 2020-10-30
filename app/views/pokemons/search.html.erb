@@ -1,4 +1,4 @@
-<p>Found <%= pluralize(@result_pokemons.count, 'Pokemons') %> when searching for: <%= params[:keywords] %></p>
+<p> Found <%= pluralize(@result_pokemons_count.count, 'Pokemons') %> </p>
 
 <ul>
   <% @result_pokemons.each do |pokemon| %>
