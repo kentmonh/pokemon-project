@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!-- Required meta tags for Bootstrap -->
     <meta charset="utf-8">
@@ -39,19 +39,21 @@
 
     <p class="text-center display-4">Minh's Pokemons Project</p>
 
-    <%= form_with(url: search_pokemons_path, method: :get, local: true) do %>
-      <div class="field is-grouped mb-5">
-        <div class="control is-expanded">
-          <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search Pokemons") %>
+    <div>
+      <%= form_with(url: search_pokemons_path, method: :get, local: true) do %>
+        <div class="field is-grouped mb-5">
+          <div class="control is-expanded">
+            <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search Pokemons") %>
+          </div>
+          <div>
+            <%= select_tag 'select_generation', options_from_collection_for_select(Generation.all, :id, :number), prompt: "All Generation" %>
+          </div>
+          <div class="control ">
+            <%= submit_tag("Search", class: "button is-primary") %>
+          </div>
         </div>
-        <div>
-          <%= select_tag 'select_generation', options_from_collection_for_select(Generation.all, :id, :number), prompt: "All Generation" %>
-        </div>
-        <div class="control ">
-          <%= submit_tag("Search", class: "button is-primary") %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <div>
       <%= yield %>
