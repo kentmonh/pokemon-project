@@ -3,5 +3,7 @@ class TypesController < ApplicationController
     @types = Type.all.page(params[:page])
   end
 
-  def show; end
+  def show
+    @type = Type.find(params[:id])
+  end
 end

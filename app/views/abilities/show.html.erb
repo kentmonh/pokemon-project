@@ -1,2 +1,13 @@
-<h1>Abilities#show</h1>
-<p>Find me in app/views/abilities/show.html.erb</p>
+<%= content_for(:html_title) { @ability.name } %>
+
+<h1> <%= @ability.name %> Ability </h1>
+
+<p>
+  There are <%= @ability.pokemons.count %> pokemons have this ability
+</p>
+
+<ul>
+  <% @ability.pokemons.each do |pokemon| %>
+    <li> <%= link_to pokemon.name, pokemon %> </li>
+  <% end %>
+</ul>

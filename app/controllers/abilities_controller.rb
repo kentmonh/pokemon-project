@@ -3,5 +3,7 @@ class AbilitiesController < ApplicationController
     @abilities = Ability.all.page(params[:page])
   end
 
-  def show; end
+  def show
+    @ability = Ability.find(params[:id])
+  end
 end
